@@ -1,0 +1,604 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C018828422A76C3F009AD945 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C018828322A76C3F009AD945 /* AppDelegate.m */; };
+		C018828722A76C3F009AD945 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C018828622A76C3F009AD945 /* ViewController.m */; };
+		C018828A22A76C3F009AD945 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C018828822A76C3F009AD945 /* Main.storyboard */; };
+		C018828C22A76C41009AD945 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C018828B22A76C41009AD945 /* Assets.xcassets */; };
+		C018828F22A76C41009AD945 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C018828D22A76C41009AD945 /* LaunchScreen.storyboard */; };
+		C018829222A76C41009AD945 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C018829122A76C41009AD945 /* main.m */; };
+		C018829C22A76C41009AD945 /* PYTreeCollectionViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C018829B22A76C41009AD945 /* PYTreeCollectionViewTests.m */; };
+		C01882A722A76C41009AD945 /* PYTreeCollectionViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C01882A622A76C41009AD945 /* PYTreeCollectionViewUITests.m */; };
+		C01882B922A76C66009AD945 /* PYTreeCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C01882B722A76C66009AD945 /* PYTreeCollectionView.m */; };
+		C01882BA22A76C66009AD945 /* PYTreeLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C01882B822A76C66009AD945 /* PYTreeLayout.m */; };
+		C01882BD22A76D23009AD945 /* treeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C01882BC22A76D23009AD945 /* treeCollectionViewCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C018829822A76C41009AD945 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C018827722A76C3F009AD945 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C018827E22A76C3F009AD945;
+			remoteInfo = PYTreeCollectionView;
+		};
+		C01882A322A76C41009AD945 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C018827722A76C3F009AD945 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C018827E22A76C3F009AD945;
+			remoteInfo = PYTreeCollectionView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C018827F22A76C3F009AD945 /* PYTreeCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PYTreeCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C018828222A76C3F009AD945 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C018828322A76C3F009AD945 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C018828522A76C3F009AD945 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		C018828622A76C3F009AD945 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C018828922A76C3F009AD945 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C018828B22A76C41009AD945 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C018828E22A76C41009AD945 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C018829022A76C41009AD945 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C018829122A76C41009AD945 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C018829722A76C41009AD945 /* PYTreeCollectionViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PYTreeCollectionViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C018829B22A76C41009AD945 /* PYTreeCollectionViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PYTreeCollectionViewTests.m; sourceTree = "<group>"; };
+		C018829D22A76C41009AD945 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C01882A222A76C41009AD945 /* PYTreeCollectionViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PYTreeCollectionViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C01882A622A76C41009AD945 /* PYTreeCollectionViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PYTreeCollectionViewUITests.m; sourceTree = "<group>"; };
+		C01882A822A76C41009AD945 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C01882B522A76C66009AD945 /* PYTreeCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYTreeCollectionView.h; sourceTree = "<group>"; };
+		C01882B622A76C66009AD945 /* PYTreeLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYTreeLayout.h; sourceTree = "<group>"; };
+		C01882B722A76C66009AD945 /* PYTreeCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PYTreeCollectionView.m; sourceTree = "<group>"; };
+		C01882B822A76C66009AD945 /* PYTreeLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PYTreeLayout.m; sourceTree = "<group>"; };
+		C01882BB22A76D23009AD945 /* treeCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = treeCollectionViewCell.h; sourceTree = "<group>"; };
+		C01882BC22A76D23009AD945 /* treeCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = treeCollectionViewCell.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C018827C22A76C3F009AD945 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C018829422A76C41009AD945 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C018829F22A76C41009AD945 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C018827622A76C3F009AD945 = {
+			isa = PBXGroup;
+			children = (
+				C018828122A76C3F009AD945 /* PYTreeCollectionView */,
+				C018829A22A76C41009AD945 /* PYTreeCollectionViewTests */,
+				C01882A522A76C41009AD945 /* PYTreeCollectionViewUITests */,
+				C018828022A76C3F009AD945 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C018828022A76C3F009AD945 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C018827F22A76C3F009AD945 /* PYTreeCollectionView.app */,
+				C018829722A76C41009AD945 /* PYTreeCollectionViewTests.xctest */,
+				C01882A222A76C41009AD945 /* PYTreeCollectionViewUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C018828122A76C3F009AD945 /* PYTreeCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				C01882B422A76C66009AD945 /* PYTreeCollectionView */,
+				C018828222A76C3F009AD945 /* AppDelegate.h */,
+				C018828322A76C3F009AD945 /* AppDelegate.m */,
+				C018828522A76C3F009AD945 /* ViewController.h */,
+				C018828622A76C3F009AD945 /* ViewController.m */,
+				C018828822A76C3F009AD945 /* Main.storyboard */,
+				C018828B22A76C41009AD945 /* Assets.xcassets */,
+				C018828D22A76C41009AD945 /* LaunchScreen.storyboard */,
+				C018829022A76C41009AD945 /* Info.plist */,
+				C018829122A76C41009AD945 /* main.m */,
+				C01882BB22A76D23009AD945 /* treeCollectionViewCell.h */,
+				C01882BC22A76D23009AD945 /* treeCollectionViewCell.m */,
+			);
+			path = PYTreeCollectionView;
+			sourceTree = "<group>";
+		};
+		C018829A22A76C41009AD945 /* PYTreeCollectionViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				C018829B22A76C41009AD945 /* PYTreeCollectionViewTests.m */,
+				C018829D22A76C41009AD945 /* Info.plist */,
+			);
+			path = PYTreeCollectionViewTests;
+			sourceTree = "<group>";
+		};
+		C01882A522A76C41009AD945 /* PYTreeCollectionViewUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C01882A622A76C41009AD945 /* PYTreeCollectionViewUITests.m */,
+				C01882A822A76C41009AD945 /* Info.plist */,
+			);
+			path = PYTreeCollectionViewUITests;
+			sourceTree = "<group>";
+		};
+		C01882B422A76C66009AD945 /* PYTreeCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				C01882B522A76C66009AD945 /* PYTreeCollectionView.h */,
+				C01882B722A76C66009AD945 /* PYTreeCollectionView.m */,
+				C01882B622A76C66009AD945 /* PYTreeLayout.h */,
+				C01882B822A76C66009AD945 /* PYTreeLayout.m */,
+			);
+			path = PYTreeCollectionView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C018827E22A76C3F009AD945 /* PYTreeCollectionView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01882AB22A76C41009AD945 /* Build configuration list for PBXNativeTarget "PYTreeCollectionView" */;
+			buildPhases = (
+				C018827B22A76C3F009AD945 /* Sources */,
+				C018827C22A76C3F009AD945 /* Frameworks */,
+				C018827D22A76C3F009AD945 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PYTreeCollectionView;
+			productName = PYTreeCollectionView;
+			productReference = C018827F22A76C3F009AD945 /* PYTreeCollectionView.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C018829622A76C41009AD945 /* PYTreeCollectionViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01882AE22A76C41009AD945 /* Build configuration list for PBXNativeTarget "PYTreeCollectionViewTests" */;
+			buildPhases = (
+				C018829322A76C41009AD945 /* Sources */,
+				C018829422A76C41009AD945 /* Frameworks */,
+				C018829522A76C41009AD945 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C018829922A76C41009AD945 /* PBXTargetDependency */,
+			);
+			name = PYTreeCollectionViewTests;
+			productName = PYTreeCollectionViewTests;
+			productReference = C018829722A76C41009AD945 /* PYTreeCollectionViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C01882A122A76C41009AD945 /* PYTreeCollectionViewUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01882B122A76C41009AD945 /* Build configuration list for PBXNativeTarget "PYTreeCollectionViewUITests" */;
+			buildPhases = (
+				C018829E22A76C41009AD945 /* Sources */,
+				C018829F22A76C41009AD945 /* Frameworks */,
+				C01882A022A76C41009AD945 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C01882A422A76C41009AD945 /* PBXTargetDependency */,
+			);
+			name = PYTreeCollectionViewUITests;
+			productName = PYTreeCollectionViewUITests;
+			productReference = C01882A222A76C41009AD945 /* PYTreeCollectionViewUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C018827722A76C3F009AD945 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = PerhapYs;
+				TargetAttributes = {
+					C018827E22A76C3F009AD945 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					C018829622A76C41009AD945 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = C018827E22A76C3F009AD945;
+					};
+					C01882A122A76C41009AD945 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = C018827E22A76C3F009AD945;
+					};
+				};
+			};
+			buildConfigurationList = C018827A22A76C3F009AD945 /* Build configuration list for PBXProject "PYTreeCollectionView" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C018827622A76C3F009AD945;
+			productRefGroup = C018828022A76C3F009AD945 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C018827E22A76C3F009AD945 /* PYTreeCollectionView */,
+				C018829622A76C41009AD945 /* PYTreeCollectionViewTests */,
+				C01882A122A76C41009AD945 /* PYTreeCollectionViewUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C018827D22A76C3F009AD945 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C018828F22A76C41009AD945 /* LaunchScreen.storyboard in Resources */,
+				C018828C22A76C41009AD945 /* Assets.xcassets in Resources */,
+				C018828A22A76C3F009AD945 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C018829522A76C41009AD945 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C01882A022A76C41009AD945 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C018827B22A76C3F009AD945 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C01882BD22A76D23009AD945 /* treeCollectionViewCell.m in Sources */,
+				C01882BA22A76C66009AD945 /* PYTreeLayout.m in Sources */,
+				C018828722A76C3F009AD945 /* ViewController.m in Sources */,
+				C01882B922A76C66009AD945 /* PYTreeCollectionView.m in Sources */,
+				C018829222A76C41009AD945 /* main.m in Sources */,
+				C018828422A76C3F009AD945 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C018829322A76C41009AD945 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C018829C22A76C41009AD945 /* PYTreeCollectionViewTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C018829E22A76C41009AD945 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C01882A722A76C41009AD945 /* PYTreeCollectionViewUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C018829922A76C41009AD945 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C018827E22A76C3F009AD945 /* PYTreeCollectionView */;
+			targetProxy = C018829822A76C41009AD945 /* PBXContainerItemProxy */;
+		};
+		C01882A422A76C41009AD945 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C018827E22A76C3F009AD945 /* PYTreeCollectionView */;
+			targetProxy = C01882A322A76C41009AD945 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C018828822A76C3F009AD945 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C018828922A76C3F009AD945 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C018828D22A76C41009AD945 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C018828E22A76C41009AD945 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C01882A922A76C41009AD945 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C01882AA22A76C41009AD945 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C01882AC22A76C41009AD945 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PYTreeCollectionView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = perhapys.PYTreeCollectionView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C01882AD22A76C41009AD945 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PYTreeCollectionView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = perhapys.PYTreeCollectionView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C01882AF22A76C41009AD945 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PYTreeCollectionViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = perhapys.PYTreeCollectionViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PYTreeCollectionView.app/PYTreeCollectionView";
+			};
+			name = Debug;
+		};
+		C01882B022A76C41009AD945 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PYTreeCollectionViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = perhapys.PYTreeCollectionViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PYTreeCollectionView.app/PYTreeCollectionView";
+			};
+			name = Release;
+		};
+		C01882B222A76C41009AD945 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PYTreeCollectionViewUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = perhapys.PYTreeCollectionViewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PYTreeCollectionView;
+			};
+			name = Debug;
+		};
+		C01882B322A76C41009AD945 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PYTreeCollectionViewUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = perhapys.PYTreeCollectionViewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PYTreeCollectionView;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C018827A22A76C3F009AD945 /* Build configuration list for PBXProject "PYTreeCollectionView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01882A922A76C41009AD945 /* Debug */,
+				C01882AA22A76C41009AD945 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01882AB22A76C41009AD945 /* Build configuration list for PBXNativeTarget "PYTreeCollectionView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01882AC22A76C41009AD945 /* Debug */,
+				C01882AD22A76C41009AD945 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01882AE22A76C41009AD945 /* Build configuration list for PBXNativeTarget "PYTreeCollectionViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01882AF22A76C41009AD945 /* Debug */,
+				C01882B022A76C41009AD945 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01882B122A76C41009AD945 /* Build configuration list for PBXNativeTarget "PYTreeCollectionViewUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01882B222A76C41009AD945 /* Debug */,
+				C01882B322A76C41009AD945 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C018827722A76C3F009AD945 /* Project object */;
+}
