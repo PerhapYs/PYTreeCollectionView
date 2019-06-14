@@ -46,6 +46,10 @@
     return CGSizeMake(70, 30);
 }
 -(void)PYTreeCollectionView:(PYTreeCollectionView *)collectionView didSelectItemAtIndexPath:(PYTreeIndexPath *)indexPath{
-    NSLog(@"%ld",[indexPath selectedRowAtSection:indexPath.originalIndexPath.section]);
+    
+}
+
+-(void)PYTreeCollectionView:(PYTreeCollectionView *)collectionView contentSize:(CGSize)contentSize{
+    
 }
 @end

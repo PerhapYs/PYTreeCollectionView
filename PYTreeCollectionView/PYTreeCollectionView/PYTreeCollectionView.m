@@ -8,7 +8,7 @@
 
 #import "PYTreeCollectionView.h"
 #import "PYTreeLayout.h"
-#define MAX_CONTENTSIZE_HEIGHT 10000000
+
 static NSString *const PyCollectionDefaultIdentifier = @"identifierForDefaultCell";
 
 @interface PYTreeCollectionView ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>{
@@ -51,10 +51,7 @@ static NSString *const PyCollectionDefaultIdentifier = @"identifierForDefaultCel
         CGSize oldSize = [change[@"old"] CGSizeValue];
         CGSize newSize = [change[@"new"] CGSizeValue];
         if (oldSize.height != newSize.height) {
-            
-            self.collectionView.frame = CGRectMake(0, 0, self.bounds.size.width, newSize.height);
             self.contentSize = newSize;
-            
             if (self.treeDelegate && [self.treeDelegate respondsToSelector:@selector(PYTreeCollectionView:contentSize:)]) {
                 [self.treeDelegate PYTreeCollectionView:self contentSize:newSize];
             }
@@ -63,7 +60,7 @@ static NSString *const PyCollectionDefaultIdentifier = @"identifierForDefaultCel
 }
 -(void)dealloc{
     
-    [self removeObserver:self forKeyPath:@"contentSize"];
+    [self.collectionView removeObserver:self forKeyPath:@"contentSize"];
 }
 -(void)didMoveToWindow{
     [super didMoveToWindow];
@@ -71,15 +68,8 @@ static NSString *const PyCollectionDefaultIdentifier = @"identifierForDefaultCel
     [self reloadData];
 }
 -(void)reloadData{
-    
     [self initializeSize];
     [self.collectionView reloadData];
-}
--(void)layoutSubviews{
-    [super layoutSubviews];
-    
-    self.contentSize = CGSizeMake(self.bounds.size.width, self.contentSize.height);
-    self.collectionView.frame = CGRectMake(0, 0, self.bounds.size.width,self.contentSize.height);
 }
 -(void)initializeSize{
     NSInteger width = self.bounds.size.width;
@@ -116,10 +106,6 @@ static NSString *const PyCollectionDefaultIdentifier = @"identifierForDefaultCel
     return nil;
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    if (self.collectionView.numberOfSections > indexPath.section + 1) {
-        self.contentSize = CGSizeMake(self.bounds.size.width, _maxCollectionViewContentHeight);
-        self.collectionView.frame = CGRectMake(0, 0, self.bounds.size.width, _maxCollectionViewContentHeight);
-    }
     
     NSDictionary *selectedDataSource = [self.layoutDeleagate clickCellAtiIndexPath:indexPath];
     self.selectedIndexPathDataSource = [self PYTreeIndexPathForDictionary:selectedDataSource];
@@ -199,7 +185,9 @@ static NSString *const PyCollectionDefaultIdentifier = @"identifierForDefaultCel
 -(UICollectionView *)collectionView{
     if (!_collectionView) {
         _collectionView = ({
+            
             PYTreeLayout *layout = [[PYTreeLayout alloc] init];
+            
             layout.scrollDirection = UICollectionViewScrollDirectionVertical;
             self.layoutDeleagate = layout;
             
@@ -228,28 +216,6 @@ static NSString *const PyCollectionDefaultIdentifier = @"identifierForDefaultCel
 @end
 
 @implementation PYTreeIndexPath
-
--(NSInteger)selectedRowAtSection:(NSInteger)section{
-    
-    if (self.selectedIndexPath.section == section) {  // 如果是相等表示，返回本身的row
-        
-        return self.selectedIndexPath.row;
-    }
-    if (section < 0) {  // 小于0，属于值错误，不存在低于0的section,返回0作为默认row
-        
-        return 0;
-    }
-    
-    NSInteger lastSection = self.selectedIndexPath.section - 1;
-    
-    if (lastSection > section) {  // 如果上一级仍然大于需要的section,则进行递归 找寻上上级的row
-        
-        return [self.last selectedRowAtSection:section];
-    }
-    else{
-        return self.last.selectedIndexPath.row;
-    }
-}
 
 +(instancetype)PYTreeIndexpathForIndexPath:(NSIndexPath *)indexPath{
     PYTreeIndexPath *pyIndexPath = [[PYTreeIndexPath alloc] init];

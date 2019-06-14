@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#define MAX_CONTENTSIZE_HEIGHT 10000000
 NS_ASSUME_NONNULL_BEGIN
 #define KEY_SECTION_(x) [NSString stringWithFormat:@"sectionOf%@",@(x)]
 

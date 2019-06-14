@@ -13,9 +13,9 @@
 
 @property (nonatomic , strong) NSMutableDictionary *selectedIndexPathDataSource;
 
-@property (nonatomic , strong) NSMutableDictionary *cellSizeDataSource;
-
 @property (nonatomic , strong) NSMutableDictionary *changedSizeDataSource;
+
+//@property (nonatomic , strong) NSMutableArray *changedCellDataSource;
 
 @end
 @implementation PYTreeLayout
@@ -61,6 +61,7 @@
 }
 // 计算contentSize
 -(CGSize)collectionViewContentSize{
+    
     NSInteger numberOfSection = [self.collectionView numberOfSections];
     if (numberOfSection > 0) { // 有一级以上
 
@@ -76,22 +77,23 @@
             }
         }
         NSInteger totalHeight = theLastCellRect.origin.y + theLastCellRect.size.height + self.sectionInset.bottom;
-        
+
         return CGSizeMake(self.collectionView.bounds.size.width,totalHeight);
     }
 
-    return CGSizeMake(self.collectionView.bounds.size.width,0);
+    return CGSizeMake(self.collectionView.bounds.size.width,MAX_CONTENTSIZE_HEIGHT);
 }
+
 -(CGRect)rectForItemInIndexPath:(NSIndexPath *)indexPath{
     
-    UICollectionViewLayoutAttributes *att = (UICollectionViewLayoutAttributes *)[self.cellSizeDataSource objectForKey:KEY_INDEXPATH_(indexPath)];
+    UICollectionViewLayoutAttributes *att = [self layoutAttributesForItemAtIndexPath:indexPath];
     
     return att.frame;
 }
 -(CGRect)rectForChangedItemInIndexPath:(NSIndexPath *)indexPath{
     
     UICollectionViewLayoutAttributes *att = (UICollectionViewLayoutAttributes *)[self.changedSizeDataSource objectForKey:KEY_INDEXPATH_(indexPath)];
-    
+
     return att.frame;
 }
 -(CGFloat)heightForSection:(NSInteger)section{
@@ -101,8 +103,9 @@
         NSIndexPath *firstCellIndexPath = [NSIndexPath indexPathForRow:0 inSection:section];
         NSIndexPath *lastCellIndexPath = [NSIndexPath indexPathForRow:numberOfRow-1 inSection:section];
         
-        CGRect firstCellRect = [self rectForItemInIndexPath:firstCellIndexPath];
-        CGRect lastCellRect = [self rectForItemInIndexPath:lastCellIndexPath];
+        CGRect firstCellRect = [self layoutAttributesForItemAtIndexPath:firstCellIndexPath].frame;
+       
+        CGRect lastCellRect = [self layoutAttributesForItemAtIndexPath:lastCellIndexPath].frame;
         
         UIEdgeInsets sectionInset = [self insetForSectionAtIndex:section];
         NSInteger sectionHeight = lastCellRect.origin.y + lastCellRect.size.height - firstCellRect.origin.y + sectionInset.top + sectionInset.bottom;
@@ -148,52 +151,52 @@
     }
     return 0;
 }
-- (nullable NSArray<__kindof UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect{
+-(void)prepareLayout{
+    
+    [super prepareLayout];
 
-    NSMutableArray *attMarr = [[NSMutableArray alloc] initWithArray:[super layoutAttributesForElementsInRect:rect] copyItems:YES];
-
-    NSMutableArray *mArr = [[NSMutableArray alloc] init];
+    NSInteger numberOfSection = [self.collectionView numberOfSections];
+    
     _changedSizeDataSource = nil;
-    for (int i = 0 ; i < attMarr.count; i ++) {
+    
+    for (int section = 0; section < numberOfSection; section ++) {
+
+        NSInteger numberOfRow = [self.collectionView numberOfItemsInSection:section];
         
-        UICollectionViewLayoutAttributes *att = attMarr[i];
-       
-        [self.cellSizeDataSource setObject:[att copy] forKey:KEY_INDEXPATH_(att.indexPath)];
-        
-        if (att.representedElementKind == UICollectionElementCategoryCell) {  // cell
+        for (int row = 0; row < numberOfRow; row ++) {
+                
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+            
+            UICollectionViewLayoutAttributes *att = [[self layoutAttributesForItemAtIndexPath:indexPath] copy];
+           
+            NSInteger lastSection = section - 1;
 
-            NSIndexPath *currentIndexPath = att.indexPath;
-
-            // 判断下级是否显示,如果是显示状态，改变本级的布局
-            BOOL nextShowStatus = [self.selectedIndexPathDataSource.allKeys containsObject:KEY_SECTION_(currentIndexPath.section)];
-            if (nextShowStatus) { // 如果下级显示的话，改变本级的布局
-                // 本级的点击indexPath
-                NSIndexPath *selectedIndexPath = self.selectedIndexPathDataSource[KEY_SECTION_(currentIndexPath.section)];
-
-                NSInteger selected_Y = [self rectForItemInIndexPath:selectedIndexPath].origin.y;
-
-                NSInteger layout_Y = att.frame.origin.y;
-                if (layout_Y > selected_Y) {  // 如果不等于则，默认添加上一个下一级section的整体高度
-
-                    NSInteger addHeight = [self addHeightAtSection:currentIndexPath.section];
-                    att.frame = CGRectMake(att.frame.origin.x, att.frame.origin.y + addHeight, att.frame.size.width, att.frame.size.height);
-                }
-            }
-
-            // 默认1级始终显示  // 判断是否显示其他级，以上一级是否被点击作为判断
-            NSInteger lastSection = currentIndexPath.section - 1;
-            BOOL firstClassShow = currentIndexPath.section == 0;
             BOOL showStatus = [self.selectedIndexPathDataSource.allKeys containsObject:KEY_SECTION_(lastSection)];
-            if (firstClassShow || showStatus) {
-                if (showStatus) {  // 二级以上显示时。改变本级的位置为上一级点击位置下方
+           
+            if (section == 0 || showStatus) {  // 1级默认显示,其他级查询上级是否被点击.
+
+//                             判断下级是否显示,如果是显示状态，改变本级的布局
+                BOOL nextShowStatus = [self.selectedIndexPathDataSource.allKeys containsObject:KEY_SECTION_(section)];
+                if (nextShowStatus) { // 如果下级显示的话，改变本级的布局
+                    // 本级的点击indexPath
+                    NSIndexPath *selectedIndexPath = self.selectedIndexPathDataSource[KEY_SECTION_(section)];
+                    NSInteger selected_Y = [self layoutAttributesForItemAtIndexPath:selectedIndexPath].frame.origin.y;
+                    NSInteger layout_Y = att.frame.origin.y;
+                    if (layout_Y > selected_Y) {  // 如果不等于则，默认添加上一个下一级section的整体高度
+
+                        NSInteger addHeight = [self addHeightAtSection:section];
+                        att.frame = CGRectMake(att.frame.origin.x, att.frame.origin.y + addHeight, att.frame.size.width, att.frame.size.height);
+                    }
+                }
+                if (showStatus) {
                     if (lastSection == 0) {
 
                         NSIndexPath *lastSelectedIndexPath = self.selectedIndexPathDataSource[KEY_SECTION_(lastSection)];
                         CGRect lastSelectedRect = [self rectForItemInIndexPath:lastSelectedIndexPath];
-                        UIEdgeInsets currentInsets = [self insetForSectionAtIndex:currentIndexPath.section];
+                        UIEdgeInsets currentInsets = [self insetForSectionAtIndex:section];
                         NSInteger lastSelected_Bottom = lastSelectedRect.origin.y + lastSelectedRect.size.height + currentInsets.top;
 
-                        NSIndexPath *firstCellIndexPath = [NSIndexPath indexPathForRow:0 inSection:currentIndexPath.section];
+                        NSIndexPath *firstCellIndexPath = [NSIndexPath indexPathForRow:0 inSection:section];
                         NSInteger firstCell_Y = [self rectForItemInIndexPath:firstCellIndexPath].origin.y;
 
                         NSInteger change_Y = firstCell_Y - lastSelected_Bottom;
@@ -203,11 +206,11 @@
                     else{
                         NSIndexPath *lastSelectedIndexPath = self.selectedIndexPathDataSource[KEY_SECTION_(lastSection)];
                         CGRect lastSelectedRect = [self rectForChangedItemInIndexPath:lastSelectedIndexPath];
-                        UIEdgeInsets currentInsets = [self insetForSectionAtIndex:currentIndexPath.section];
+                        UIEdgeInsets currentInsets = [self insetForSectionAtIndex:section];
 
                         NSInteger lastSelected_Bottom = lastSelectedRect.origin.y + lastSelectedRect.size.height + currentInsets.top;
 
-                        NSIndexPath *firstCellIndexPath = [NSIndexPath indexPathForRow:0 inSection:currentIndexPath.section];
+                        NSIndexPath *firstCellIndexPath = [NSIndexPath indexPathForRow:0 inSection:section];
                         NSInteger firstCell_Y = [self rectForItemInIndexPath:firstCellIndexPath].origin.y;
 
                         NSInteger change_Y = firstCell_Y - lastSelected_Bottom;
@@ -215,30 +218,36 @@
                     }
                 }
 
-                [mArr addObject:att];
-                [self.changedSizeDataSource setObject:att forKey:KEY_INDEXPATH_(att.indexPath)];
+                [self.changedSizeDataSource setObject:[att copy] forKey:KEY_INDEXPATH_(att.indexPath)];
             }
         }
     }
-    return mArr;
+}
+- (nullable NSArray<__kindof UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect{
+    
+    return self.changedSizeDataSource.allValues;
 }
 - (NSDictionary *)clickCellAtiIndexPath:(NSIndexPath *)indexPath{
-    
+  
+    NSString *keyString = KEY_SECTION_(indexPath.section);
     // 如果已经包含，表示本级已经被点击过.
-    if ([self.selectedIndexPathDataSource.allKeys containsObject:KEY_SECTION_(indexPath.section)]) {
+    if ([self.selectedIndexPathDataSource.allKeys containsObject:keyString]) {
+       
+        NSIndexPath *saveIndexPath = self.selectedIndexPathDataSource[keyString];
         
-        NSIndexPath *saveIndexPath = self.selectedIndexPathDataSource[KEY_SECTION_(indexPath.section)];
-        
-        // 删除本级及所有下级.
+//         删除本级及所有下级.
         NSInteger selectedSection = indexPath.section;
+        
         NSArray *enumArr = [self.selectedIndexPathDataSource.allKeys copy];
         for (NSString *sectionStr in enumArr) {
+            
             NSIndexPath *indexPath = self.selectedIndexPathDataSource[sectionStr];
             if (indexPath.section >= selectedSection) {
                 [self.selectedIndexPathDataSource removeObjectForKey:sectionStr];
             }
         }
         // 判断是否是同一个cell的重复点击操作
+        
         if (![saveIndexPath isEqual:indexPath]) { //不是同级，清空所有下级,添加新的本级
             [self.selectedIndexPathDataSource setObject:indexPath forKey:KEY_SECTION_(indexPath.section)];
         }
@@ -247,13 +256,14 @@
         // 保存点击的cell.indexPath
         [self.selectedIndexPathDataSource setObject:indexPath forKey:KEY_SECTION_(indexPath.section)];
     }
-    
+  
     [self.collectionView reloadData];
     
     return self.selectedIndexPathDataSource;
 }
 -(NSMutableDictionary *)selectedIndexPathDataSource{
     if (!_selectedIndexPathDataSource) {
+        
         _selectedIndexPathDataSource = ({
             NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
             
@@ -271,14 +281,5 @@
         });
     }
     return _changedSizeDataSource;
-}
--(NSMutableDictionary *)cellSizeDataSource{
-    if (!_cellSizeDataSource) {
-        _cellSizeDataSource = ({
-            NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-            dic;
-        });
-    }
-    return _cellSizeDataSource;
 }
 @end

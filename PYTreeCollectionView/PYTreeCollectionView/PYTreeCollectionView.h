@@ -13,9 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 @class PYTreeCollectionView;
 @class PYTreeIndexPath;
 @protocol PYTreeDataSource <NSObject>
-
 @required
 -(NSInteger)PYTreeCollectionView:(PYTreeCollectionView *)collectionView numberOfItemsAtIndexPath:(PYTreeIndexPath *)indexPath;
+
 
 -(Class)registerCellForPYTreeCollectionView:(PYTreeCollectionView *)collectionView atIndexPath:(PYTreeIndexPath *)indexPath;
 
@@ -28,9 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @protocol PYTreeDelegate <NSObject>
-
 @optional
-
 -(NSInteger)PYTreeCollectionView:(PYTreeCollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section;
 
 -(CGSize)PYTreeCollectionView:(PYTreeCollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
@@ -60,7 +58,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) CGFloat maxContentHeight;  // 默认为10000000,如果可能展示的高度超过这个高度，可以重新设置为更高的高度。但是不可低于需要完全展示所有级的最高高度。
 
--(void)reloadData;  // 刷新方法
+-(void)reloadData;  // 设置了数据需要展示，则必须调用该方法。
 
 @end
 
@@ -72,17 +70,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic , strong) PYTreeIndexPath *last;
 
-@property (nonatomic , readonly ,strong) PYTreeIndexPath *next;
+@property (nonatomic , strong) PYTreeIndexPath *next;
 
-@property (nonatomic , readonly , strong) PYTreeIndexPath *first;
+@property (nonatomic, readonly , strong) PYTreeIndexPath *first;
 
 @property (nonatomic , strong) PYTreeIndexPath *mainBranch;
 
 +(instancetype)PYTreeIndexpathForIndexPath:(NSIndexPath *)indexPath;
 
 -(PYTreeIndexPath *)PYTreeIndexPathAtSection:(NSInteger)section;
-
--(NSInteger)selectedRowAtSection:(NSInteger)section;
 
 @end
 NS_ASSUME_NONNULL_END
